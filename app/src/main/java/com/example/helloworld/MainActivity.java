@@ -2,6 +2,8 @@ package com.example.helloworld;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,6 +19,7 @@ import com.example.helloworld.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +37,14 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        tv = findViewById(R.id.textView);
+        tv.setText(" <Text Goes Here> ");
+
     }
 
     public void onButtonClicked(View v){
-        Toast.makeText(this, "Hello World", Toast.LENGTH_LONG).show();
+        tv.setText("Hello World");
     }
 
 }
